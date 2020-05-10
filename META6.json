@@ -1,0 +1,20 @@
+{
+    "name": "Zef::Service::AuthenticatedDownload",
+    "description": "Zef module download plugin with authentication",
+    "version": "0.1",
+    "perl": "6.c",
+    "authors": [
+        "Robert Lemmen <robertle@semistable.com>"
+    ],
+    "provides": {
+        "Zef::Service::AuthenticatedDownload": "lib/Zef/Service/AuthenticatedDownload.rakumod"
+    },
+    "depends": [
+        "Net::HTTP"
+    ],
+    "test-depends": [
+        "Test::META"
+    ],
+    "license": "Artistic-2.0",
+    "source-url": "git://github.com/robertlemmen/raku-zef-service-authenticateddownload.git"
+}
