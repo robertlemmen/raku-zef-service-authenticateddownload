@@ -36,14 +36,14 @@ class Zef::Service::AuthenticatedDownload does Fetcher does Probeable does Messe
             when 'opaque-token' {
                 my $token = %*ENV{'ZEF_AUTH_OPAQUE_TOKEN'} // $config<token>;
                 if ! defined $token {
-                    my $msg = "No token available from config or ZEF_AUTH_OPAQUE_TOKEN, cannot authenticate against $host";
-                    note $msg;
-                    die $msg;
+                    note("No token available from config or ZEF_AUTH_OPAQUE_TOKEN, cannot authenticate against $host");
+                    return False;
                 }
                 %header<Authorization> = "Bearer $token";
             }
             default {
-                die "Unsupported auth-type '$_' in config of Zef::Service::AuthenticatedDownload";
+                note("Unsupported auth-type '$_' in config of Zef::Service::AuthenticatedDownload");
+                return False;
             }
         }
 
@@ -52,7 +52,7 @@ class Zef::Service::AuthenticatedDownload does Fetcher does Probeable does Messe
             my $fh = $save-as.open(:w, :create, :bin);
             $fh.spurt($response.body);
             $fh.close;
-            return $save-as.e;
+            return $save-as;
         }
         return False;
     }

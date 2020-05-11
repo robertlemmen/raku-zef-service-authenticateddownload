@@ -10,7 +10,8 @@
         "Zef::Service::AuthenticatedDownload": "lib/Zef/Service/AuthenticatedDownload.rakumod"
     },
     "depends": [
-        "Net::HTTP"
+        "Net::HTTP",
+        "IO::Socket::SSL"
     ],
     "test-depends": [
         "Test::META"
