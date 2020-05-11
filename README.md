@@ -1,7 +1,7 @@
 # Zef::Service::AuthenticatedDownload
 
 ... Zef plugin to fetch modules from a repository that requires authentication,
-like Shelve6
+like [Shelve6](https://github.com/robertlemmen/svc-shelve6)
 
 ## Usage
 
